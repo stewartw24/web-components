@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Components</title>
+    <style>
+        div {
+            border: 2px solid orange;
+        }
+    </style>
+    <script src="tooltip.js"></script>
+    <script src="confirm-link.js"></script>
+</head>
+<body>
+    <!-- <template id="tooltip-template"><slot>Some default</slot>
+        <span> (?)</span>
+    </template> -->
+    <p><my-tooltip tooltip-text="web components is a set of standards">Web Components</my-tooltip> are ok</p>
+    <p><my-tooltip>Another one</my-tooltip></p>
+    <p><my-tooltip></my-tooltip></p>
+    <div>This does not get the webcomponents scoped styles</div>
+    <a is="uc-confirm-link" href="http://www.google.com/">Google</a>
+</body>
+</html>
