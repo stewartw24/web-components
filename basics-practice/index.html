@@ -9,6 +9,17 @@
         div {
             border: 2px solid orange;
         }
+
+        /*my-tooltip only works as a selector in the light dom. If you want to style the selctor in the shadow dom use :host{}*/
+        my-tooltip {
+            border: 1px solid blue;
+            padding: 0.15rem;
+        }
+
+        .highlight {
+            /* background-color: rgb(247, 182, 63); */
+            /* border-bottom: 2px solid blue; */
+        }
     </style>
     <script src="tooltip.js"></script>
     <script src="confirm-link.js"></script>
@@ -17,10 +28,10 @@
     <!-- <template id="tooltip-template"><slot>Some default</slot>
         <span> (?)</span>
     </template> -->
-    <p><my-tooltip tooltip-text="web components is a set of standards">Web Components</my-tooltip> are ok</p>
+    <p><my-tooltip class="important" tooltip-text="web components is a set of standards"><span class="highlight">Web Components</span></my-tooltip> are ok</p>
     <p><my-tooltip>Another one</my-tooltip></p>
-    <p><my-tooltip></my-tooltip></p>
-    <div>This does not get the webcomponents scoped styles</div>
+    <my-tooltip></my-tooltip>
+    <div>This does not get the web components scoped styles</div>
     <a is="uc-confirm-link" href="http://www.google.com/">Google</a>
 </body>
 </html>
