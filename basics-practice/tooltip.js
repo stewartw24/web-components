@@ -22,6 +22,10 @@ class Tooltip extends HTMLElement {
                     box-shadow: 1px 1px 6px rgba(0,0,0,0.26);
                 }
 
+                :host {
+                  position: relative;
+                }
+
                 :host(.important) {
                   background: var(--color-primary, #ccc);
                   padding: 0.15rem;
@@ -67,7 +71,6 @@ class Tooltip extends HTMLElement {
       this._hideTooltip.bind(this)
     );
     // this.shadowRoot.appendChild(tooltipIcon);
-    this.style.position = "relative";
     this._render();
   }
 
