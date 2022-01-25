@@ -23,9 +23,13 @@ class Modal extends HTMLElement {
                     pointer-events: all;
                 }
 
+                :host([opened]) #modal {
+                    top: 15vh;
+                }
+
                 #modal {
                     position: fixed;
-                    top: 15vh;
+                    top: 10vh;
                     left: 25%;
                     width: 50%;
                     z-index: 100;
@@ -37,14 +41,17 @@ class Modal extends HTMLElement {
                     justify-content: space-between;
                     opacity: 0;
                     pointer-events: none;
+                    transition: all 0.3s ease-out;
                 }
 
                 header {
                     padding: 1rem;
+                    border-bottom: 1px solid #ccc;
                 }
 
-                header h1 {
+                ::slotted(h1) {
                     font-size: 1.25rem;
+                    margin: 0;
                 }
 
                 #main {
@@ -65,17 +72,30 @@ class Modal extends HTMLElement {
             <div id="backdrop"></div>
             <div id="modal">
                 <header>
-                    <h1>Please confirm</h1>
+                    <slot name="title">Please confirm payment</slot>
                 </header>
                 <section id="main">
                     <slot><slot>
                 </section>
                 <section id="actions">
-                    <button>Cancel</button>
-                    <button>Confirm</button>
+                    <button id="cancel-btn">Cancel</button>
+                    <button id="confirm-btn">Confirm</button>
                 </section>
             </div>
         `;
+        const slots = this.shadowRoot.querySelectorAll('slot');
+        slots[1].addEventListener('slotchange', event => {
+            console.dir(slots[1].assignedNodes());
+        });
+        const backdrop = this.shadowRoot.querySelector('#backdrop');
+        const cancelButton = this.shadowRoot.querySelector('#cancel-btn');
+        const confirmButton = this.shadowRoot.querySelector('#confirm-btn');
+        backdrop.addEventListener('click', this._cancel.bind(this));
+        cancelButton.addEventListener('click', this._cancel.bind(this));
+        confirmButton.addEventListener('click', this._confirm.bind(this));
+        // cancelButton.addEventListener('cancel', ()=> {
+        //     console.log('Cancel inside the component');
+        // });
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
@@ -101,6 +121,26 @@ class Modal extends HTMLElement {
     open(){
         this.setAttribute('opened', '');
         this.isOpen = true;
+    }
+
+    hide(){
+        if(this.hasAttribute('opened')){
+            this.removeAttribute('opened');
+        }
+        this.isOpen = false;
+    }
+
+    _cancel(event){
+        this.hide();
+        const cancelEvent = new Event('cancel', { bubbles: true, composed: true });
+        event.target.dispatchEvent(cancelEvent);
+    }
+
+    _confirm(){
+        this.hide();
+        //the following works the same way as const cancelEvent in the _cancel() function
+        const confirmEvent = new Event('confirm');
+        this.dispatchEvent(confirmEvent);
     }
 }
 
