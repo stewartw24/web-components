@@ -6,29 +6,18 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface WsStockFinder {
     }
     interface WsStockPrice {
+        "stockSymbol": string;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLWsStockFinderElement extends Components.WsStockFinder, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLWsStockFinderElement: {
+        prototype: HTMLWsStockFinderElement;
+        new (): HTMLWsStockFinderElement;
     };
     interface HTMLWsStockPriceElement extends Components.WsStockPrice, HTMLStencilElement {
     }
@@ -37,29 +26,18 @@ declare global {
         new (): HTMLWsStockPriceElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "ws-stock-finder": HTMLWsStockFinderElement;
         "ws-stock-price": HTMLWsStockPriceElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface WsStockFinder {
     }
     interface WsStockPrice {
+        "stockSymbol"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "ws-stock-finder": WsStockFinder;
         "ws-stock-price": WsStockPrice;
     }
 }
@@ -67,7 +45,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "ws-stock-finder": LocalJSX.WsStockFinder & JSXBase.HTMLAttributes<HTMLWsStockFinderElement>;
             "ws-stock-price": LocalJSX.WsStockPrice & JSXBase.HTMLAttributes<HTMLWsStockPriceElement>;
         }
     }

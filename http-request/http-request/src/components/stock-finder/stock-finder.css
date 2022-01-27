@@ -42,7 +42,3 @@ form button:disabled {
     color: white;
     cursor: not-allowed;
 }
-
-/* form button:focus {
-    outline: none;
-} */
