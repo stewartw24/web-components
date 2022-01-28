@@ -32,6 +32,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface WsStockFinder {
+        "onWsSymbolSelected"?: (event: CustomEvent<string>) => void;
     }
     interface WsStockPrice {
         "stockSymbol"?: string;

@@ -11,5 +11,13 @@
   <body>
     <ws-stock-price stock-symbol="AAPL"></ws-stock-price>
     <ws-stock-finder></ws-stock-finder>
+
+    <!-- Not needed because a listen decorator is being used in the other component -->
+    <!-- <script>
+      const stockFinderEl = document.querySelector('ws-stock-finder');
+      stockFinderEl.addEventListener('wsSymbolSelected', event => {
+        console.log(event);
+      })
+    </script> -->
   </body>
 </html>
