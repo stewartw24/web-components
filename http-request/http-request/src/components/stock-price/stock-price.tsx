@@ -117,6 +117,11 @@ export class StockPrice {
         });
     }
 
+    //hostData is a special reserved name
+    hostData(){
+        return {class: this.error ? 'hydrated error' : ''};
+    }
+
     render(){
         let dataContent = <p>Please enter a symbol</p>;
         if(this.error){
