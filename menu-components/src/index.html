@@ -4,11 +4,74 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
     <title>Stencil Component Starter</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+
+      /* .side-nav ul {
+        list-style: none;
+      }
+
+      .side-nav li {
+        margin: 1rem 0;
+      }
+
+      .side-nav a {
+        text-decoration: none;
+        color: black;
+      } */
+
+      html {
+        --color-primary: rgb(248, 166, 14);
+        --color-header-text: black;
+        --color-text: black;
+        --color-a-background: rgb(248, 166, 14);
+      }
+
+      
+    </style>
 
     <script type="module" src="/build/menu-components.esm.js"></script>
     <script nomodule src="/build/menu-components.js"></script>
   </head>
   <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+    <button id="side-drawer-btn" style="float: right;">&#9776;</button>
+    <!-- <ws-side-drawer title="Main Menu">
+      <nav class="side-nav">
+        <ul>
+          <li><a href="/">A link</a></li>
+          <li><a href="/">Another link</a></li>
+          <li><a href="/">A third link</a></li>
+        </ul>
+      </nav>
+      <ul class="tiled">
+                        <li><a class="tile" href="/">A link</a></li>
+                        <li><a class="tile" href="/">Another link</a></li>
+                        <li><a class="tile" href="/">A third link</a></li>
+                    </ul>
+    </ws-side-drawer> -->
+    
+    <ws-top-drawer></ws-top-drawer>
+    <script>
+      const menuCompButton = document.querySelector('#side-drawer-btn');
+      // const sideDrawer = document.querySelector('ws-side-drawer');
+      const menuComp = document.querySelector('ws-top-drawer');
+      menuCompButton.addEventListener('click', () => {
+        if(!menuComp.opened){
+          console.log('opening...')
+          menuComp.open();
+        }
+      })
+    
+      const listItems = [
+        {name: 'A link', url: '/'},
+        {name: 'Another link', url: '/'},
+        {name: 'A third link', url: '/'},
+        {name: 'A fourth link', url: '/'},
+      ]
+      menuComp.menuLink = listItems;
+      menuComp.menuTitle = 'Hello';
+    </script>
   </body>
 </html>

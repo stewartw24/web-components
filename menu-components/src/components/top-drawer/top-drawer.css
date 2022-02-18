@@ -1,0 +1,83 @@
+.container {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 5vh;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    transition: top 0.4s ease-out;
+}
+
+:host([opened]) .container {
+    top: 0;
+}
+
+header {
+    padding: 1rem;
+    background: var(--color-primary, rgb(25, 228, 167));
+    position: relative;
+    height: 100%;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--color-header-text, rgb(248, 244, 244));
+}
+
+header button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    color: var(--color-header-text, rgb(248, 244, 244));
+    background: transparent;
+    font-size: 1.5rem;
+    border: none;
+}
+
+header button:focus {
+    outline: none;
+}
+
+body {
+    font-family: sans-serif;
+  }
+
+  .side-nav ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 1rem;
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .side-nav li {
+    margin: 1rem 0;
+    
+  }
+
+  .side-nav a {
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    color: var(--color-text, black);
+    /* border: 1px solid var(--li-outline, red); */
+    background: var(--color-btn-background, rgb(248, 244, 244));
+    margin-right: 5px;
+  }
+
+  /* .highlight {
+    background: linear-gradient(180deg, var(--sp-highlight, rgba(82, 144, 168, 0)) 50%, var(--sp-highlight-secondary, #11010a 00%));
+    background-position: 10% 2%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+
+  .highlight2 {
+    background: linear-gradient(180deg, var(--sp-highlight-2, rgba(82, 144, 168, 0)) 50%, var(--sp-highlight-2-secondary, #11010a 200%));
+    background-position: 100% 10%;
+    background-size: 100% 20px;
+    background-repeat: no-repeat;
+  } */
+
