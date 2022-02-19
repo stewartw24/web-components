@@ -23,6 +23,8 @@
       } */
 
       html {
+
+        /**css vars for ws-top-drawer**/
         --color-primary: rgb(248, 166, 14);
         --color-header-text: black;
         --color-text: black;
@@ -31,7 +33,7 @@
 
       
     </style>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script type="module" src="/build/menu-components.esm.js"></script>
     <script nomodule src="/build/menu-components.js"></script>
   </head>
@@ -52,17 +54,18 @@
                     </ul>
     </ws-side-drawer> -->
     
-    <ws-top-drawer></ws-top-drawer>
+    <!-- <ws-top-drawer></ws-top-drawer> -->
+    <ws-wonky-donkey></ws-wonky-donkey>
     <script>
-      const menuCompButton = document.querySelector('#side-drawer-btn');
-      // const sideDrawer = document.querySelector('ws-side-drawer');
-      const menuComp = document.querySelector('ws-top-drawer');
-      menuCompButton.addEventListener('click', () => {
-        if(!menuComp.opened){
-          console.log('opening...')
-          menuComp.open();
-        }
-      })
+
+      //////wonky donkey settings
+      const menuComp = document.querySelector('ws-wonky-donkey');
+      // menuCompButton.addEventListener('click', () => {
+      //   if(!menuComp.opened){
+      //     console.log('opening...')
+      //     menuComp.open();
+      //   }
+      // })
     
       const listItems = [
         {name: 'A link', url: '/'},
@@ -72,6 +75,31 @@
       ]
       menuComp.menuLink = listItems;
       menuComp.menuTitle = 'Hello';
+
+
+
+
+      ////settings for ws-top-drawer
+      // const menuCompButton = document.querySelector('#side-drawer-btn');
+      // const menuComp = document.querySelector('ws-top-drawer');
+      // menuCompButton.addEventListener('click', () => {
+      //   if(!menuComp.opened){
+      //     console.log('opening...')
+      //     menuComp.open();
+      //   }
+      // })
+    
+      // const listItems = [
+      //   {name: 'A link', url: '/'},
+      //   {name: 'Another link', url: '/'},
+      //   {name: 'A third link', url: '/'},
+      //   {name: 'A fourth link', url: '/'},
+      // ]
+      // menuComp.menuLink = listItems;
+      // menuComp.menuTitle = 'Hello';
+
+
+
     </script>
   </body>
 </html>

@@ -17,6 +17,11 @@ export namespace Components {
         "open": () => Promise<void>;
         "opened": boolean;
     }
+    interface WsWonkyDonkey {
+        "menuLink": any[];
+        "menuTitle": string;
+        "opened": boolean;
+    }
 }
 declare global {
     interface HTMLWsSideDrawerElement extends Components.WsSideDrawer, HTMLStencilElement {
@@ -31,9 +36,16 @@ declare global {
         prototype: HTMLWsTopDrawerElement;
         new (): HTMLWsTopDrawerElement;
     };
+    interface HTMLWsWonkyDonkeyElement extends Components.WsWonkyDonkey, HTMLStencilElement {
+    }
+    var HTMLWsWonkyDonkeyElement: {
+        prototype: HTMLWsWonkyDonkeyElement;
+        new (): HTMLWsWonkyDonkeyElement;
+    };
     interface HTMLElementTagNameMap {
         "ws-side-drawer": HTMLWsSideDrawerElement;
         "ws-top-drawer": HTMLWsTopDrawerElement;
+        "ws-wonky-donkey": HTMLWsWonkyDonkeyElement;
     }
 }
 declare namespace LocalJSX {
@@ -46,9 +58,15 @@ declare namespace LocalJSX {
         "menuTitle"?: string;
         "opened"?: boolean;
     }
+    interface WsWonkyDonkey {
+        "menuLink"?: any[];
+        "menuTitle"?: string;
+        "opened"?: boolean;
+    }
     interface IntrinsicElements {
         "ws-side-drawer": WsSideDrawer;
         "ws-top-drawer": WsTopDrawer;
+        "ws-wonky-donkey": WsWonkyDonkey;
     }
 }
 export { LocalJSX as JSX };
@@ -57,6 +75,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "ws-side-drawer": LocalJSX.WsSideDrawer & JSXBase.HTMLAttributes<HTMLWsSideDrawerElement>;
             "ws-top-drawer": LocalJSX.WsTopDrawer & JSXBase.HTMLAttributes<HTMLWsTopDrawerElement>;
+            "ws-wonky-donkey": LocalJSX.WsWonkyDonkey & JSXBase.HTMLAttributes<HTMLWsWonkyDonkeyElement>;
         }
     }
 }
