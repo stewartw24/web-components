@@ -40,7 +40,7 @@ export class WonkyDonkey {
 
     render(){
         let content = <ul>{this.menuLink.map(result => (
-            <li><a href={result.url}>{result.name}</a></li>
+            <li><a href={result.url} class="menu-options">{result.name}</a></li>
             ))}</ul>;
         return [
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></link>,
@@ -55,10 +55,11 @@ export class WonkyDonkey {
                         </button>
                     </div>
                 </div>
-            </div>,
-
-            <nav>
+                <br />
+                <br />
                 <slot />
+            </div>,
+            <nav>
                 {content}
             </nav>
         ]

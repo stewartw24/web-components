@@ -6,6 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface WsSideButtons {
+    }
     interface WsSideDrawer {
         "open": () => Promise<void>;
         "opened": boolean;
@@ -24,6 +26,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLWsSideButtonsElement extends Components.WsSideButtons, HTMLStencilElement {
+    }
+    var HTMLWsSideButtonsElement: {
+        prototype: HTMLWsSideButtonsElement;
+        new (): HTMLWsSideButtonsElement;
+    };
     interface HTMLWsSideDrawerElement extends Components.WsSideDrawer, HTMLStencilElement {
     }
     var HTMLWsSideDrawerElement: {
@@ -43,12 +51,15 @@ declare global {
         new (): HTMLWsWonkyDonkeyElement;
     };
     interface HTMLElementTagNameMap {
+        "ws-side-buttons": HTMLWsSideButtonsElement;
         "ws-side-drawer": HTMLWsSideDrawerElement;
         "ws-top-drawer": HTMLWsTopDrawerElement;
         "ws-wonky-donkey": HTMLWsWonkyDonkeyElement;
     }
 }
 declare namespace LocalJSX {
+    interface WsSideButtons {
+    }
     interface WsSideDrawer {
         "opened"?: boolean;
         "title"?: string;
@@ -64,6 +75,7 @@ declare namespace LocalJSX {
         "opened"?: boolean;
     }
     interface IntrinsicElements {
+        "ws-side-buttons": WsSideButtons;
         "ws-side-drawer": WsSideDrawer;
         "ws-top-drawer": WsTopDrawer;
         "ws-wonky-donkey": WsWonkyDonkey;
@@ -73,6 +85,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "ws-side-buttons": LocalJSX.WsSideButtons & JSXBase.HTMLAttributes<HTMLWsSideButtonsElement>;
             "ws-side-drawer": LocalJSX.WsSideDrawer & JSXBase.HTMLAttributes<HTMLWsSideDrawerElement>;
             "ws-top-drawer": LocalJSX.WsTopDrawer & JSXBase.HTMLAttributes<HTMLWsTopDrawerElement>;
             "ws-wonky-donkey": LocalJSX.WsWonkyDonkey & JSXBase.HTMLAttributes<HTMLWsWonkyDonkeyElement>;
