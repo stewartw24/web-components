@@ -96,7 +96,10 @@ Et tortor consequat id porta. Velit euismod in pellentesque massa placerat. Phar
 Nulla aliquet enim tortor at. Fermentum leo vel orci porta non. Vel risus commodo viverra maecenas accumsan lacus vel facilisis volutpat. In nulla posuere sollicitudin aliquam ultrices sagittis orci. Mauris in aliquam sem fringilla ut morbi tincidunt augue. Nisl purus in mollis nunc sed. Ullamcorper eget nulla facilisi etiam dignissim diam. Tincidunt arcu non sodales neque sodales ut. Dolor magna eget est lorem ipsum dolor sit amet. Tincidunt praesent semper feugiat nibh sed pulvinar proin gravida hendrerit. Rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi. Massa tempor nec feugiat nisl pretium fusce id velit ut. Sed vulputate mi sit amet mauris commodo quis. Commodo odio aenean sed adipiscing diam donec. Magna fermentum iaculis eu non diam. Volutpat sed cras ornare arcu dui vivamus. Et magnis dis parturient montes nascetur ridiculus mus mauris. Netus et malesuada fames ac turpis egestas integer. Eget nunc lobortis mattis aliquam faucibus purus. Fusce id velit ut tortor pretium viverra suspendisse potenti nullam.
     </ws-wonky-donkey> -->
 
-    <ws-side-buttons></ws-side-buttons>
+    <!-- <ws-side-buttons></ws-side-buttons> -->
+
+    <ws-full-cover></ws-full-cover>
+
     <!-- <div class="">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et ultrices neque ornare aenean euismod. Est placerat in egestas erat imperdiet sed euismod nisi porta. Est ullamcorper eget nulla facilisi etiam dignissim diam quis. Id aliquet lectus proin nibh nisl condimentum id venenatis a. Accumsan in nisl nisi scelerisque eu ultrices vitae auctor eu. Eget nunc scelerisque viverra mauris in aliquam. Metus aliquam eleifend mi in. Vitae justo eget magna fermentum iaculis eu. Varius sit amet mattis vulputate.
 
@@ -174,19 +177,16 @@ Nulla aliquet enim tortor at. Fermentum leo vel orci porta non. Vel risus commod
       ////settings for ws-side-buttons
       // const menuCompButton = document.querySelector('#side-drawer-btn');
       const menuComp = document.querySelector('ws-side-buttons');
-      menuCompButton.addEventListener('click', () => {
-        if(!menuComp.opened){
-          console.log('opening...')
-          menuComp.open();
-        }
-      });
     
       const listItems = [
-        {name: 'A link', url: '/'},
-        {name: 'Another link', url: '/'},
-        {name: 'A third link', url: '/'},
-        {name: 'A fourth link', url: '/'},
+        {name: 'Home', url: '/', imgSrc: 'https://img.icons8.com/material-rounded/96/000000/home-page.png'},
+        {name: 'Projects', url: '/', imgSrc: 'https://img.icons8.com/material-sharp/96/000000/business-conference-female-speaker.png'},
+        {name: 'Info', url: '/', imgSrc: 'https://img.icons8.com/ios-filled/100/000000/info.png'},
+        {name: 'Guides', url: '/', imgSrc: 'https://img.icons8.com/ios-filled/100/000000/informatics-book.png'},
+        {name: 'Feedback', url: '/', imgSrc: 'https://img.icons8.com/material-rounded/100/000000/feedback.png'},
       ]
+
+      menuComp.menuLink = listItems;
 
     </script>
   </body>

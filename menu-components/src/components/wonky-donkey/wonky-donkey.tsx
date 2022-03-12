@@ -12,14 +12,6 @@ export class WonkyDonkey {
     @Prop({reflect: true, mutable: true}) opened: boolean;
 
     onCloseDrawer(){
-        // const close = document.getElementById("close");
-        // const container = document.querySelector(".container");
-        // close.addEventListener("click", () => {
-        //     container.classList.add("show-nav");
-        //   });
-        // console.log("inside close drawer");
-        // this.opened = false;
-        
             this.opened = false;
             console.log(this.opened)
     }
@@ -29,13 +21,6 @@ export class WonkyDonkey {
         console.log(this.opened)
         console.log('inside the open function')
         console.log(this);
-        // this.opened = true;
-
-        // const open = document.getElementById("open");
-        // const container = document.querySelector(".container");
-        // open.addEventListener("click", () => {
-        // container.classList.add("show-nav");
-        //   });
     }
 
     render(){
