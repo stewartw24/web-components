@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface WsFullCover {
+        "menuLink": any[];
         "opened": boolean;
     }
     interface WsSideButtons {
@@ -70,6 +71,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface WsFullCover {
+        "menuLink"?: any[];
         "opened"?: boolean;
     }
     interface WsSideButtons {

@@ -40,6 +40,35 @@
         --color-a-background: rgb(248, 166, 14);
       }
 
+      /* html {
+  font-size: 62.5%; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
+
+body {
+  box-sizing: border-box;
+  padding: 3rem; }
+  @media only screen and (max-width: 56.25em) {
+    body {
+      padding: 0; } }
+
+::selection {
+  background-color: #55c57a;
+  color: #fff; }
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #777; } */
+
       
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -176,14 +205,27 @@ Nulla aliquet enim tortor at. Fermentum leo vel orci porta non. Vel risus commod
 
       ////settings for ws-side-buttons
       // const menuCompButton = document.querySelector('#side-drawer-btn');
-      const menuComp = document.querySelector('ws-side-buttons');
+      // const menuComp = document.querySelector('ws-side-buttons');
+    
+      // const listItems = [
+      //   {name: 'Home', url: '/', imgSrc: 'https://img.icons8.com/material-rounded/96/000000/home-page.png'},
+      //   {name: 'Projects', url: '/', imgSrc: 'https://img.icons8.com/material-sharp/96/000000/business-conference-female-speaker.png'},
+      //   {name: 'Info', url: '/', imgSrc: 'https://img.icons8.com/ios-filled/100/000000/info.png'},
+      //   {name: 'Guides', url: '/', imgSrc: 'https://img.icons8.com/ios-filled/100/000000/informatics-book.png'},
+      //   {name: 'Feedback', url: '/', imgSrc: 'https://img.icons8.com/material-rounded/100/000000/feedback.png'},
+      // ]
+
+      // menuComp.menuLink = listItems;
+
+
+      const menuComp = document.querySelector('ws-full-cover');
     
       const listItems = [
-        {name: 'Home', url: '/', imgSrc: 'https://img.icons8.com/material-rounded/96/000000/home-page.png'},
-        {name: 'Projects', url: '/', imgSrc: 'https://img.icons8.com/material-sharp/96/000000/business-conference-female-speaker.png'},
-        {name: 'Info', url: '/', imgSrc: 'https://img.icons8.com/ios-filled/100/000000/info.png'},
-        {name: 'Guides', url: '/', imgSrc: 'https://img.icons8.com/ios-filled/100/000000/informatics-book.png'},
-        {name: 'Feedback', url: '/', imgSrc: 'https://img.icons8.com/material-rounded/100/000000/feedback.png'},
+        {name: 'Home', url: '/'},
+        {name: 'Projects', url: '/'},
+        {name: 'Info', url: '/'},
+        {name: 'Guides', url: '/'},
+        {name: 'Feedback', url: '/'},
       ]
 
       menuComp.menuLink = listItems;
