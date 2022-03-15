@@ -10,6 +10,8 @@ export namespace Components {
         "menuLink": any[];
         "opened": boolean;
     }
+    interface WsHexMenu {
+    }
     interface WsSideButtons {
         "menuLink": any[];
     }
@@ -37,6 +39,12 @@ declare global {
         prototype: HTMLWsFullCoverElement;
         new (): HTMLWsFullCoverElement;
     };
+    interface HTMLWsHexMenuElement extends Components.WsHexMenu, HTMLStencilElement {
+    }
+    var HTMLWsHexMenuElement: {
+        prototype: HTMLWsHexMenuElement;
+        new (): HTMLWsHexMenuElement;
+    };
     interface HTMLWsSideButtonsElement extends Components.WsSideButtons, HTMLStencilElement {
     }
     var HTMLWsSideButtonsElement: {
@@ -63,6 +71,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "ws-full-cover": HTMLWsFullCoverElement;
+        "ws-hex-menu": HTMLWsHexMenuElement;
         "ws-side-buttons": HTMLWsSideButtonsElement;
         "ws-side-drawer": HTMLWsSideDrawerElement;
         "ws-top-drawer": HTMLWsTopDrawerElement;
@@ -73,6 +82,8 @@ declare namespace LocalJSX {
     interface WsFullCover {
         "menuLink"?: any[];
         "opened"?: boolean;
+    }
+    interface WsHexMenu {
     }
     interface WsSideButtons {
         "menuLink"?: any[];
@@ -93,6 +104,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "ws-full-cover": WsFullCover;
+        "ws-hex-menu": WsHexMenu;
         "ws-side-buttons": WsSideButtons;
         "ws-side-drawer": WsSideDrawer;
         "ws-top-drawer": WsTopDrawer;
@@ -104,6 +116,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "ws-full-cover": LocalJSX.WsFullCover & JSXBase.HTMLAttributes<HTMLWsFullCoverElement>;
+            "ws-hex-menu": LocalJSX.WsHexMenu & JSXBase.HTMLAttributes<HTMLWsHexMenuElement>;
             "ws-side-buttons": LocalJSX.WsSideButtons & JSXBase.HTMLAttributes<HTMLWsSideButtonsElement>;
             "ws-side-drawer": LocalJSX.WsSideDrawer & JSXBase.HTMLAttributes<HTMLWsSideDrawerElement>;
             "ws-top-drawer": LocalJSX.WsTopDrawer & JSXBase.HTMLAttributes<HTMLWsTopDrawerElement>;
