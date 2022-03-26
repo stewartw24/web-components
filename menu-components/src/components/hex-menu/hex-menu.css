@@ -1,46 +1,36 @@
 :host {
   /* Change this to change the appearance of the hexaons */
-  --hex-width: 100px; 
-  --hex-between: 10px;
+  --hex-width: 5.625rem; 
+  --hex-between: 0.5rem;
+
+  --ham-line-width: 3.125rem; 
+  --ham-line-height: 0.313rem;
+  --ham-line-transform: 0.813rem;
+  --ham-line-transform-invert: -0.813rem; 
+  --tile-margin: 0.5rem;
+  --grid-row-invert: 1.804rem;
+  --svg-size: 75%;
   
   /* Other hexagon dimentions */
   --hex-height: calc(var(--hex-width) / 1.73 /* sqrt(3) */);
   --hex-margin: calc(var(--hex-width) / 2);
   --hex-border: calc(var(--hex-margin) / 1.73 /* sqrt(3) */);
   --hex-transition: all .2s ease;
-  --secs: 0;
-  --nchld: 0;
   
   /* Colors */
   --color-hex-default: #000000;
   --color-hex-hover:   #FFFFFF;
-  --color-angular:     #DD0031;
-  --color-atom:        #66595C;
-  --color-bootstrap:   #563D7C;
-  --color-circleci:    #343434;
-  --color-css:         #1572B6;
-  --color-git:         #F14E32;
-  --color-gulp:        #DA4648;
-  --color-haskell:     #5D4F85;
-  --color-html:        #E34F26;
-  --color-javascript:  #F7DF1E;
-  --color-meteor:      #DE4F4F;
-  --color-python:      #3776AB;
-  --color-rails:       #CC0000;
-  --color-sass:        #CC6699;
-  --color-vuejs:       #4FC08D;
-  --color-webpack:     #8DD6F9;
 }
 
 .hamburger {
   clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
 .hamburger .line{
-  width: 50px;
-  height: 5px;
+  width: var(--ham-line-width);
+  height: var(--ham-line-height);
   background-color: #ecf0f1;
   display: block;
-  margin: 8px auto;
+  margin: var(--tile-margin) auto;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -51,7 +41,7 @@
 }
 
 .hexagon:hover .line {
-  background-color: var(--color-sass);
+  background-color: var(--color-menu, #CC6699);
 }
 
 :host([opened]) #hamburger-6{
@@ -69,20 +59,20 @@
 }
 
 :host([opened]) #hamburger-6 .line:nth-child(1){
-  -webkit-transform: translateY(13px);
-  -ms-transform: translateY(13px);
-  -o-transform: translateY(13px);
-  transform: translateY(13px);
+  -webkit-transform: translateY(var(--ham-line-transform));
+  -ms-transform: translateY(var(--ham-line-transform));
+  -o-transform: translateY(var(--ham-line-transform));
+  transform: translateY(var(--ham-line-transform));
 }
 
 :host([opened]) #hamburger-6 .line:nth-child(3){
-  -webkit-transform: translateY(-13px) rotate(90deg);
-  -ms-transform: translateY(-13px) rotate(90deg);
-  -o-transform: translateY(-13px) rotate(90deg);
-  transform: translateY(-13px) rotate(90deg);
+  -webkit-transform: translateY(var(--ham-line-transform-invert)) rotate(90deg);
+  -ms-transform: translateY(var(--ham-line-transform-invert)) rotate(90deg);
+  -o-transform: translateY(var(--ham-line-transform-invert)) rotate(90deg);
+  transform: translateY(var(--ham-line-transform-invert)) rotate(90deg);
 }
 
- .hide {
+.hide {
   --hex-transition: '';
   animation: disappear 0.1s ease;
   visibility: hidden;
@@ -129,7 +119,7 @@
 .hexagon-container {
   display: grid;
   grid-template-columns: var(--hex-width) var(--hex-width) var(--hex-width) var(--hex-width);
-  grid-auto-rows: calc(var(--hex-width) - 28.87px/2);
+  grid-auto-rows: calc(var(--hex-width) - var(--grid-row-invert) /2);
   grid-gap: var(--hex-between) var(--hex-between);
   padding-bottom: var(--hex-border);
 }
@@ -181,20 +171,34 @@
 }
 
 .hexagon > svg {
-  height: 75%;
+  height: var(--svg-size);
   transition: var(--hex-transition);
 }
 
 /* Colors */
-.color-sass {
-  background-color: var(--color-sass);
+.color-menu {
+  background-color: var(--color-menu, #CC6699);
 }
-.color-sass::after,
-.color-sass::before {
-  border-top-color: var(--color-sass);
-  border-bottom-color: var(--color-sass);
+.color-menu::after,
+.color-menu::before {
+  border-top-color: var(--color-menu, #CC6699);
+  border-bottom-color: var(--color-menu, #CC6699);
 }
-.color-sass:hover {
-  /* fill: var(--color-sass); */
-  color: var(--color-sass);
+.color-menu:hover {
+  color: var(--color-menu, #CC6699);
+}
+
+@media only screen and (max-width: 600px) {
+  :host {
+    --hex-width: 2.8125rem; 
+    --hex-between: 0.25rem;
+    --ham-line-width: 1.5625rem; 
+    --ham-line-height: 0.1565rem;
+    --ham-line-transform: 0.4065rem;
+    --ham-line-transform-invert: -0.4065rem; 
+    --tile-margin: 0.25rem;
+    --grid-row-invert: 0.902rem;
+    --svg-size: 90%;
+  }
+  
 }

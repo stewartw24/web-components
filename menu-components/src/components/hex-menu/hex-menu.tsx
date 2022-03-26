@@ -40,13 +40,15 @@ export class HexMenu {
   render() {
     let content = this.menuLink.map((el, index) => ([
       <style>{`.color-tile-${index} { background-color: ${el.colour}; --hex-transition: ''; animation: disappear ${(this.menuLink.length - index) / 10}s ease; visibility: hidden;} :host([opened]) .color-tile-${index} {--hex-transition: all .2s ease; transition: var(--hex-transition); animation: appearing ${index / 10}s ease; visibility: visible;} .color-tile-${index}::after, .color-tile-${index}::before { border-top-color: ${el.colour}; border-bottom-color: ${el.colour};} .color-tile-${index}:hover { fill: ${el.colour}}`}</style>,
+        <a class="disabled" href={el.url}>
         <div class={`hexagon color-tile-${index} ${this.setShift(index)} ${this.count % 2}`} >
-        <svg aria-labelledby={el.ariaLabeledBy} role="img" viewBox="0 0 24 24" xmlns={el.url}><title id={el.ariaLabeledBy}>{el.title}</title><path d={el.svgPath1}/>{el.svgPath2 ? <path d={el.svgPath2}/> : ''} {el.cx ? <circle cx={el.cx} cy={el.cy} r={el.r}/> : ''}</svg>
+          <svg aria-labelledby={el.ariaLabeledBy} role="img" viewBox="0 0 24 24" ><title id={el.ariaLabeledBy}>{el.title}</title><path d={el.svgPath1}/>{el.svgPath2 ? <path d={el.svgPath2}/> : ''} {el.cx ? <circle cx={el.cx} cy={el.cy} r={el.r}/> : ''}</svg>
       </div>
+      </a>
     ]));
     return [
       <main class="hexagon-container">
-        <div class="hexagon color-sass">
+        <div class="hexagon color-menu">
           <div class="hamburger" id="hamburger-6" onClick={this.onCloseDrawer.bind(this)}>
             <span class="line"></span>
             <span class="line"></span>
