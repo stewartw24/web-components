@@ -1,71 +1,60 @@
-import { Component, h } from '@stencil/core';
+import { Component, h, Prop, State } from '@stencil/core';
 
 @Component({
   tag: 'ws-hex-menu',
   styleUrl: './hex-menu.css',
   shadow: true,
 })
-export class SideDrawer {
+export class HexMenu {
+  @Prop({reflect: true}) menuLink = [];
+  @Prop({reflect: true, mutable: true}) opened: boolean;
+
+  @State() addMarg = '';
+  @State() count = 0;
+
+  onCloseDrawer(){
+    if(this.opened){
+        this.opened = false;
+    }else{
+        this.opened = true;
+    }
+  }
+
+  setShift(i){
+    let modI = i % 4;
+    if(modI === 3){
+      this.count+=1
+    }
+    if(this.opened){
+      if(this.count % 2 !== 1){
+        return this.addMarg = 'marg-left';
+      }
+    }
+    if(!this.opened){
+      if(this.count % 2 === 1){
+        return this.addMarg = 'marg-left';
+      }
+    }
+  }
+
   render() {
+    let content = this.menuLink.map((el, index) => ([
+      <style>{`.color-tile-${index} { background-color: ${el.colour}; --hex-transition: ''; animation: disappear ${(this.menuLink.length - index) / 10}s ease; visibility: hidden;} :host([opened]) .color-tile-${index} {--hex-transition: all .2s ease; transition: var(--hex-transition); animation: appearing ${index / 10}s ease; visibility: visible;} .color-tile-${index}::after, .color-tile-${index}::before { border-top-color: ${el.colour}; border-bottom-color: ${el.colour};} .color-tile-${index}:hover { fill: ${el.colour}}`}</style>,
+        <div class={`hexagon color-tile-${index} ${this.setShift(index)} ${this.count % 2}`} >
+        <svg aria-labelledby={el.ariaLabeledBy} role="img" viewBox="0 0 24 24" xmlns={el.url}><title id={el.ariaLabeledBy}>{el.title}</title><path d={el.svgPath1}/>{el.svgPath2 ? <path d={el.svgPath2}/> : ''} {el.cx ? <circle cx={el.cx} cy={el.cy} r={el.r}/> : ''}</svg>
+      </div>
+    ]));
     return [
-      <input id="menu-control" type="checkbox" />,
-      <nav>
-        <label htmlfor="menu-control">
-          <ul>
-            <li id="menu">menu</li>
-            <li id="people">
-              People
-              <ul>
-                <li>bob</li>
-                <li>frank</li>
-                <li>gwen</li>
-                <li>sarah</li>
-                <li>james</li>
-              </ul>
-            </li>
-            <li id="places">
-              Places
-              <ul>
-                <li>home</li>
-                <li>work</li>
-                <li>school</li>
-                <li>store</li>
-                <li>bank</li>
-              </ul>
-            </li>
-            <li id="things">
-              Things
-              <ul>
-                <li>ball</li>
-                <li>knife</li>
-                <li>apple</li>
-                <li>grill</li>
-                <li>shoe</li>
-              </ul>
-            </li>
-            <li id="actions">
-              Actions
-              <ul>
-                <li>walk</li>
-                <li>run</li>
-                <li>jump</li>
-                <li>roll</li>
-                <li>hop</li>
-              </ul>
-            </li>
-            <li id="ideas">
-              Ideas
-              <ul>
-                <li>this</li>
-                <li>pen</li>
-                <li>is</li>
-                <li>an</li>
-                <li>idea</li>
-              </ul>
-            </li>
-          </ul>
-        </label>
-      </nav>,
+      <main class="hexagon-container">
+        <div class="hexagon color-sass">
+          <div class="hamburger" id="hamburger-6" onClick={this.onCloseDrawer.bind(this)}>
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+          </div>
+        </div>
+        {content}
+      </main>
     ];
   }
 }

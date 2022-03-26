@@ -11,6 +11,8 @@ export namespace Components {
         "opened": boolean;
     }
     interface WsHexMenu {
+        "menuLink": any[];
+        "opened": boolean;
     }
     interface WsSideButtons {
         "menuLink": any[];
@@ -84,6 +86,8 @@ declare namespace LocalJSX {
         "opened"?: boolean;
     }
     interface WsHexMenu {
+        "menuLink"?: any[];
+        "opened"?: boolean;
     }
     interface WsSideButtons {
         "menuLink"?: any[];
