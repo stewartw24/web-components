@@ -8,6 +8,7 @@ import { Component, h, Prop, State } from '@stencil/core';
 export class HexMenu {
   @Prop({reflect: true}) menuLink = [];
   @Prop({reflect: true, mutable: true}) opened: boolean;
+  @Prop({reflect: true, mutable: true}) gridCols = this.menuLink.length;
 
   @State() addMarg = '';
   @State() count = 0;
@@ -40,7 +41,7 @@ export class HexMenu {
   render() {
     let content = this.menuLink.map((el, index) => ([
       <style>{`.color-tile-${index} { background-color: ${el.colour}; --hex-transition: ''; animation: disappear ${(this.menuLink.length - index) / 10}s ease; visibility: hidden;} :host([opened]) .color-tile-${index} {--hex-transition: all .2s ease; transition: var(--hex-transition); animation: appearing ${index / 10}s ease; visibility: visible;} .color-tile-${index}::after, .color-tile-${index}::before { border-top-color: ${el.colour}; border-bottom-color: ${el.colour};} .color-tile-${index}:hover { fill: ${el.colour}}`}</style>,
-        <a class="disabled" href={el.url}>
+        <a class={!this.opened ? 'isDisabled' : ''} href={el.url}>
         <div class={`hexagon color-tile-${index} ${this.setShift(index)} ${this.count % 2}`} >
           <svg aria-labelledby={el.ariaLabeledBy} role="img" viewBox="0 0 24 24" ><title id={el.ariaLabeledBy}>{el.title}</title><path d={el.svgPath1}/>{el.svgPath2 ? <path d={el.svgPath2}/> : ''} {el.cx ? <circle cx={el.cx} cy={el.cy} r={el.r}/> : ''}</svg>
       </div>

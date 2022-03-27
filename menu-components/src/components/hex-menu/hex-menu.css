@@ -202,3 +202,7 @@
   }
   
 }
+
+.isDisabled {
+  pointer-events: none;
+}

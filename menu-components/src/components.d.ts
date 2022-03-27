@@ -11,6 +11,7 @@ export namespace Components {
         "opened": boolean;
     }
     interface WsHexMenu {
+        "gridCols": number;
         "menuLink": any[];
         "opened": boolean;
     }
@@ -86,6 +87,7 @@ declare namespace LocalJSX {
         "opened"?: boolean;
     }
     interface WsHexMenu {
+        "gridCols"?: number;
         "menuLink"?: any[];
         "opened"?: boolean;
     }
