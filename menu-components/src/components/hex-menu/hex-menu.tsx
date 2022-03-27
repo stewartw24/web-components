@@ -8,7 +8,6 @@ import { Component, h, Prop, State } from '@stencil/core';
 export class HexMenu {
   @Prop({reflect: true}) menuLink = [];
   @Prop({reflect: true, mutable: true}) opened: boolean;
-  @Prop({reflect: true, mutable: true}) gridCols = this.menuLink.length;
 
   @State() addMarg = '';
   @State() count = 0;
