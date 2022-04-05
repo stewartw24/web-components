@@ -10,7 +10,6 @@
   --tile-margin: 0.5rem;
   --grid-row-invert: 1.804rem;
   --svg-size: 75%;
-  --set-layer: 1000;
 
   /* Other hexagon dimentions */
   --hex-height: calc(var(--hex-width) / 1.73 /* sqrt(3) */);
@@ -123,7 +122,6 @@
   grid-auto-rows: calc(var(--hex-width) - var(--grid-row-invert) / 2);
   grid-gap: var(--hex-between) var(--hex-between);
   padding-bottom: var(--hex-border);
-  z-index: var(--set-layer);
 }
 .hexagon {
   align-items: center;
@@ -137,6 +135,7 @@
   position: relative;
   transition: var(--hex-transition);
   width: var(--hex-width);
+  z-index: var(--set-layer, 1000);
 }
 
 .hexagon::after,
