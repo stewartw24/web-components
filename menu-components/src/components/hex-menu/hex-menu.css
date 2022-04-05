@@ -1,31 +1,32 @@
 :host {
   /* Change this to change the appearance of the hexaons */
-  --hex-width: 5.625rem; 
+  --hex-width: 5.625rem;
   --hex-between: 0.5rem;
 
-  --ham-line-width: 3.125rem; 
+  --ham-line-width: 3.125rem;
   --ham-line-height: 0.313rem;
   --ham-line-transform: 0.813rem;
-  --ham-line-transform-invert: -0.813rem; 
+  --ham-line-transform-invert: -0.813rem;
   --tile-margin: 0.5rem;
   --grid-row-invert: 1.804rem;
   --svg-size: 75%;
-  
+  --set-layer: 1000;
+
   /* Other hexagon dimentions */
   --hex-height: calc(var(--hex-width) / 1.73 /* sqrt(3) */);
   --hex-margin: calc(var(--hex-width) / 2);
   --hex-border: calc(var(--hex-margin) / 1.73 /* sqrt(3) */);
-  --hex-transition: all .2s ease;
-  
+  --hex-transition: all 0.2s ease;
+
   /* Colors */
   --color-hex-default: #000000;
-  --color-hex-hover:   #FFFFFF;
+  --color-hex-hover: #ffffff;
 }
 
 .hamburger {
   clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
-.hamburger .line{
+.hamburger .line {
   width: var(--ham-line-width);
   height: var(--ham-line-height);
   background-color: #ecf0f1;
@@ -36,15 +37,15 @@
   transition: all 0.3s ease-in-out;
 }
 
-.hamburger:hover{
+.hamburger:hover {
   cursor: pointer;
 }
 
 .hexagon:hover .line {
-  background-color: var(--color-menu, #CC6699);
+  background-color: var(--color-menu, #cc6699);
 }
 
-:host([opened]) #hamburger-6{
+:host([opened]) #hamburger-6 {
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -54,18 +55,18 @@
   transform: rotate(45deg);
 }
 
-:host([opened]) #hamburger-6 .line:nth-child(2){
+:host([opened]) #hamburger-6 .line:nth-child(2) {
   width: 0px;
 }
 
-:host([opened]) #hamburger-6 .line:nth-child(1){
+:host([opened]) #hamburger-6 .line:nth-child(1) {
   -webkit-transform: translateY(var(--ham-line-transform));
   -ms-transform: translateY(var(--ham-line-transform));
   -o-transform: translateY(var(--ham-line-transform));
   transform: translateY(var(--ham-line-transform));
 }
 
-:host([opened]) #hamburger-6 .line:nth-child(3){
+:host([opened]) #hamburger-6 .line:nth-child(3) {
   -webkit-transform: translateY(var(--ham-line-transform-invert)) rotate(90deg);
   -ms-transform: translateY(var(--ham-line-transform-invert)) rotate(90deg);
   -o-transform: translateY(var(--ham-line-transform-invert)) rotate(90deg);
@@ -79,7 +80,7 @@
 }
 
 :host([opened]) .hide {
-  --hex-transition: all .2s ease;
+  --hex-transition: all 0.2s ease;
   transition: var(--hex-transition);
   animation: appearing 0.1s ease;
   visibility: visible;
@@ -87,45 +88,46 @@
 
 @keyframes appearing {
   from {
-            visibility:hidden;
-            opacity: 0;
-         }
-     50% {
-            visibility:hidden;
-            opacity: 0;
-         }
-     to {
-            visibility:visible;
-            opacity: 1;
-      }
+    visibility: hidden;
+    opacity: 0;
+  }
+  50% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 @keyframes disappear {
   from {
-            visibility:visible;
-            opacity: 1;
-         }
-     50% {
-            visibility:visible;
-            opacity: 1;
-         }
-     to {
-            visibility:hidden;
-            opacity: 0;
-      }
+    visibility: visible;
+    opacity: 1;
+  }
+  50% {
+    visibility: visible;
+    opacity: 1;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
 }
 
 /* Hexagons */
 .hexagon-container {
   display: grid;
   grid-template-columns: var(--hex-width) var(--hex-width) var(--hex-width) var(--hex-width);
-  grid-auto-rows: calc(var(--hex-width) - var(--grid-row-invert) /2);
+  grid-auto-rows: calc(var(--hex-width) - var(--grid-row-invert) / 2);
   grid-gap: var(--hex-between) var(--hex-between);
   padding-bottom: var(--hex-border);
+  z-index: var(--set-layer);
 }
 .hexagon {
   align-items: center;
-  background-color: var(--color-hex-default);
+  /* background-color: var(--color-hex-default); */
   cursor: pointer;
   display: flex;
   fill: white;
@@ -141,7 +143,7 @@
 .hexagon::before {
   border-left: var(--hex-margin) solid transparent;
   border-right: var(--hex-margin) solid transparent;
-  content: "";
+  content: '';
   left: 0;
   position: absolute;
   transition: var(--hex-transition);
@@ -156,7 +158,7 @@
   border-bottom: var(--hex-border) solid var(--color-hex-default);
   bottom: 100%;
 }
-  
+
 .hexagon:hover {
   background-color: var(--color-hex-hover);
 }
@@ -164,7 +166,7 @@
 .hexagon:hover::before {
   border-top-color: var(--color-hex-hover);
   border-bottom-color: var(--color-hex-hover);
-  }
+}
 
 .marg-left {
   margin-left: calc(var(--hex-width) / 2 + var(--hex-between) / 2);
@@ -177,30 +179,29 @@
 
 /* Colors */
 .color-menu {
-  background-color: var(--color-menu, #CC6699);
+  background-color: var(--color-menu, #cc6699);
 }
 .color-menu::after,
 .color-menu::before {
-  border-top-color: var(--color-menu, #CC6699);
-  border-bottom-color: var(--color-menu, #CC6699);
+  border-top-color: var(--color-menu, #cc6699);
+  border-bottom-color: var(--color-menu, #cc6699);
 }
 .color-menu:hover {
-  color: var(--color-menu, #CC6699);
+  color: var(--color-menu, #cc6699);
 }
 
 @media only screen and (max-width: 600px) {
   :host {
-    --hex-width: 2.8125rem; 
+    --hex-width: 2.8125rem;
     --hex-between: 0.25rem;
-    --ham-line-width: 1.5625rem; 
+    --ham-line-width: 1.5625rem;
     --ham-line-height: 0.1565rem;
     --ham-line-transform: 0.4065rem;
-    --ham-line-transform-invert: -0.4065rem; 
+    --ham-line-transform-invert: -0.4065rem;
     --tile-margin: 0.25rem;
     --grid-row-invert: 0.902rem;
     --svg-size: 90%;
   }
-  
 }
 
 .isDisabled {
