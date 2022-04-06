@@ -20,6 +20,7 @@
   /* Colors */
   --color-hex-default: #000000;
   --color-hex-hover: #ffffff;
+  position: fixed;
 }
 
 .hamburger {
