@@ -21,6 +21,7 @@
   --color-hex-default: #000000;
   --color-hex-hover: #ffffff;
   position: fixed;
+  z-index: var(--set-layer, 1000);
 }
 
 .hamburger {
@@ -136,7 +137,7 @@
   position: relative;
   transition: var(--hex-transition);
   width: var(--hex-width);
-  z-index: var(--set-layer, 1000);
+  
 }
 
 .hexagon::after,

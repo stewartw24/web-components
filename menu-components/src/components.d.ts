@@ -87,6 +87,7 @@ declare namespace LocalJSX {
     }
     interface WsHexMenu {
         "menuLink"?: any[];
+        "onWsTileSelected"?: (event: CustomEvent<string>) => void;
         "opened"?: boolean;
     }
     interface WsSideButtons {
