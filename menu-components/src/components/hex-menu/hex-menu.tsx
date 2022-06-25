@@ -28,6 +28,7 @@ export class HexMenu {
     }
     if (this.opened) {
       if (this.count % 2 !== 1) {
+        this.count = 0;
         return (this.addMarg = 'marg-left');
       }
     }
@@ -43,6 +44,7 @@ export class HexMenu {
   }
 
   render() {
+    console.log(this.count)
     let content = this.menuLink.map((el, index) => [
       <style>{`.color-tile-${index} { background-color: ${el.colour}; --hex-transition: ''; animation: disappear ${
         (this.menuLink.length - index) / 10
@@ -63,8 +65,8 @@ export class HexMenu {
     ]);
     return [
       <main class="hexagon-container">
-        <div class="hexagon color-menu">
-          <div class="hamburger" id="hamburger-6" onClick={this.onCloseDrawer.bind(this)}>
+        <div class="hexagon color-menu" onClick={this.onCloseDrawer.bind(this)}>
+          <div class="hamburger" id="hamburger-6">
             <span class="line"></span>
             <span class="line"></span>
             <span class="line"></span>

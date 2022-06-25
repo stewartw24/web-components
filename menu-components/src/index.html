@@ -291,20 +291,13 @@ Nulla aliquet enim tortor at. Fermentum leo vel orci porta non. Vel risus commod
       ]
       menuComp.menuLink = listItems;
 
-      console.log(menuComp.passClickInfo);
-
-      let theVal;
+      let theVal = 0;
 
       const tileFinderEl = document.querySelector('ws-hex-menu');
       tileFinderEl.addEventListener('wsTileSelected', event => {
         event.preventDefault()
         theVal = event;
-        console.log(event);
       })
-
-      console.log(theVal)
-
-      console.log(menuComp.selectedValue)
 
 
     </script>

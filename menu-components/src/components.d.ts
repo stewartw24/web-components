@@ -20,7 +20,7 @@ export namespace Components {
     interface WsSideDrawer {
         "open": () => Promise<void>;
         "opened": boolean;
-        "title": string;
+        "titl": string;
     }
     interface WsTopDrawer {
         "menuLink": any[];
@@ -95,7 +95,7 @@ declare namespace LocalJSX {
     }
     interface WsSideDrawer {
         "opened"?: boolean;
-        "title"?: string;
+        "titl"?: string;
     }
     interface WsTopDrawer {
         "menuLink"?: any[];
