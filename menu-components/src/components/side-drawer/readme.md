@@ -10,7 +10,7 @@
 | Property | Attribute | Description | Type      | Default     |
 | -------- | --------- | ----------- | --------- | ----------- |
 | `opened` | `opened`  |             | `boolean` | `undefined` |
-| `title`  | `title`   |             | `string`  | `undefined` |
+| `titl`   | `titl`    |             | `string`  | `undefined` |
 
 
 ## Methods

@@ -1,4 +1,4 @@
-# ws-hex-menu
+# svg-component
 
 
 

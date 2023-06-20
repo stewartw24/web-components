@@ -6,6 +6,10 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface ParentComponent {
+        "menuLink": any[];
+        "opened": boolean;
+    }
     interface WsFullCover {
         "menuLink": any[];
         "opened": boolean;
@@ -35,6 +39,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLParentComponentElement extends Components.ParentComponent, HTMLStencilElement {
+    }
+    var HTMLParentComponentElement: {
+        prototype: HTMLParentComponentElement;
+        new (): HTMLParentComponentElement;
+    };
     interface HTMLWsFullCoverElement extends Components.WsFullCover, HTMLStencilElement {
     }
     var HTMLWsFullCoverElement: {
@@ -72,6 +82,7 @@ declare global {
         new (): HTMLWsWonkyDonkeyElement;
     };
     interface HTMLElementTagNameMap {
+        "parent-component": HTMLParentComponentElement;
         "ws-full-cover": HTMLWsFullCoverElement;
         "ws-hex-menu": HTMLWsHexMenuElement;
         "ws-side-buttons": HTMLWsSideButtonsElement;
@@ -81,6 +92,11 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface ParentComponent {
+        "menuLink"?: any[];
+        "onWsTileSelected"?: (event: CustomEvent<string>) => void;
+        "opened"?: boolean;
+    }
     interface WsFullCover {
         "menuLink"?: any[];
         "opened"?: boolean;
@@ -108,6 +124,7 @@ declare namespace LocalJSX {
         "opened"?: boolean;
     }
     interface IntrinsicElements {
+        "parent-component": ParentComponent;
         "ws-full-cover": WsFullCover;
         "ws-hex-menu": WsHexMenu;
         "ws-side-buttons": WsSideButtons;
@@ -120,6 +137,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "parent-component": LocalJSX.ParentComponent & JSXBase.HTMLAttributes<HTMLParentComponentElement>;
             "ws-full-cover": LocalJSX.WsFullCover & JSXBase.HTMLAttributes<HTMLWsFullCoverElement>;
             "ws-hex-menu": LocalJSX.WsHexMenu & JSXBase.HTMLAttributes<HTMLWsHexMenuElement>;
             "ws-side-buttons": LocalJSX.WsSideButtons & JSXBase.HTMLAttributes<HTMLWsSideButtonsElement>;

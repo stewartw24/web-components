@@ -1,11 +1,11 @@
 import { Component, h, Prop, State, Event, EventEmitter } from '@stencil/core';
 
 @Component({
-  tag: 'ws-hex-menu',
-  styleUrl: './hex-menu.css',
+  tag: 'parent-component',
+  styleUrl: './parent-component.css',
   shadow: true,
 })
-export class HexMenu {
+export class ParentComponent {
   @Prop({ reflect: true }) menuLink = [];
   @Prop({ reflect: true, mutable: true }) opened: boolean;
   @Event({ bubbles: true, composed: true })
@@ -46,6 +46,7 @@ export class HexMenu {
 
   render() {
     console.log(this.count);
+    console.log(this.menuLink);
     let content = this.menuLink.map((el, index) => [
       <style>{`.color-tile-${index} { background-color: ${
         el.colour
@@ -56,13 +57,13 @@ export class HexMenu {
       }s ease; visibility: visible;} .color-tile-${index}::after, .color-tile-${index}::before { border-top-color: ${
         el.colour
       }; border-bottom-color: ${el.colour};} .color-tile-${index}:hover svg {
-        fill: ${el.colour};
+        fill: ${el.colour}; stroke: ${el.colour};
       } .color-tile-${index}:hover line {
-        fill: ${el.colour};
+        fill: ${el.colour}; stroke: ${el.colour};
       } .color-tile-${index}:hover circle {
-        fill: ${el.colour};
+        stroke: ${el.colour};
       } .color-tile-${index}:hover path {
-        fill: ${el.colour};
+        fill: ${el.colour}; stroke: ${el.colour};
       }`}</style>,
       <a
         class={!this.opened ? 'isDisabled' : ''}
@@ -79,6 +80,7 @@ export class HexMenu {
         />
       </a>,
     ]);
+
     return [
       <main class="hexagon-container">
         <div class="hexagon color-menu" onClick={this.onCloseDrawer.bind(this)}>
