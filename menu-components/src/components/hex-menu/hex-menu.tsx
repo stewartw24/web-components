@@ -28,15 +28,11 @@ export class HexMenu {
       this.count += 1;
     }
     if (this.opened && this.count % 2 !== 1) {
-      // if (this.count % 2 !== 1) {
       this.count = 0;
       return (this.addMarg = 'marg-left');
-      // }
     }
     if (!this.opened && this.count % 2 === 1) {
-      // if (this.count % 2 === 1) {
       return (this.addMarg = 'marg-left');
-      // }
     }
   }
 
