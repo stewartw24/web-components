@@ -1,6 +1,6 @@
 {
   "name": "ws-menu-components",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "various menu components built using StencilJS",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",

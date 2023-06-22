@@ -96,7 +96,10 @@ export class HexMenu {
     ]);
     return [
       <main class="hexagon-container">
-        <div class="hexagon color-menu" onClick={this.onCloseDrawer.bind(this)}>
+        <div
+          class="hexagon hexagons color-menu"
+          onClick={this.onCloseDrawer.bind(this)}
+        >
           <div class="hamburger" id="hamburger-6">
             <span class="line"></span>
             <span class="line"></span>

@@ -160,12 +160,22 @@
   transition: var(--hex-transition);
   width: 0;
 }
-.hexagon::after {
+/* .hexagon::after {
   border-top: var(--hex-border) solid var(--color-hex-default, #000000);
   top: 100%;
   width: 0;
 }
 .hexagon::before {
+  border-bottom: var(--hex-border) solid var(--color-hex-default, #000000);
+  bottom: 100%;
+} */
+
+.hexagons::after {
+  border-top: var(--hex-border) solid var(--color-hex-default, #000000);
+  top: 100%;
+  width: 0;
+}
+.hexagons::before {
   border-bottom: var(--hex-border) solid var(--color-hex-default, #000000);
   bottom: 100%;
 }
