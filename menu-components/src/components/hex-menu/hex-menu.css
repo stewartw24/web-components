@@ -1,15 +1,15 @@
 :host {
   /* Change these to change the appearance of the hexaons (add these values to root element in your main css file. Uncommenting them here will disable ability to set them outside of the component) */
-  /* --hex-width: 5.625rem; */
-  /* --hex-between: 0.5rem; */
+  /* --hex-width: 5.625rem;
+  --hex-between: 0.5rem;
 
-  /* --ham-line-width: 3.125rem; */
-  /* --ham-line-height: 0.313rem; */
-  /* --ham-line-transform: 0.813rem; */
-  /* --ham-line-transform-invert: -0.813rem; */
-  /* --tile-margin: 0.5rem; */
-  /* --grid-row-invert: 1.804rem; */
-  /* --svg-size: 75%; */
+  --ham-line-width: 3.125rem;
+  --ham-line-height: 0.313rem;
+  --ham-line-transform: 0.813rem;
+  --ham-line-transform-invert: -0.813rem;
+  --tile-margin: 0.5rem;
+  --grid-row-invert: 1.804rem;
+  --svg-size: 75%; */
 
   /* Other hexagon dimentions */
   --hex-height: calc(var(--hex-width, 5.625rem) / 1.73 /* sqrt(3) */);
@@ -18,8 +18,8 @@
   --hex-transition: all 0.2s ease;
 
   /* Colors */
-  /* --color-hex-default: #000000; */
-  /* --color-hex-hover: #ffffff; */
+  /* --color-hex-default: #000000;
+  --color-hex-hover: #ffffff; */
   position: fixed;
   z-index: var(--set-layer, 1000);
 }

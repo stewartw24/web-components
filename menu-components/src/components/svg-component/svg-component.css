@@ -1,8 +1,0 @@
-/* :host {
-  display: block;
-} */
-
-svg {
-  width: var(--svg-size, 50%);
-  height: var(--svg-size, 50%);
-}

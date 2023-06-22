@@ -43,23 +43,42 @@ export class HexMenu {
   render() {
     console.log(this.count);
     let content = this.menuLink.map((el, index) => [
-      <style>{`.color-tile-${index} { background-color: ${
-        el.colour
-      }; --hex-transition: ''; animation: disappear ${
-        (this.menuLink.length - index) / 10
-      }s ease; visibility: hidden;} :host([opened]) .color-tile-${index} {--hex-transition: all .2s ease; transition: var(--hex-transition); animation: appearing ${
-        index / 10
-      }s ease; visibility: visible;} .color-tile-${index}::after, .color-tile-${index}::before { border-top-color: ${
-        el.colour
-      }; border-bottom-color: ${el.colour};} .color-tile-${index}:hover svg {
-        fill: ${el.colour};
-      } .color-tile-${index}:hover line {
-        fill: ${el.colour};
-      } .color-tile-${index}:hover circle {
-        fill: ${el.colour};
-      } .color-tile-${index}:hover path {
-        fill: ${el.colour};
-      }`}</style>,
+      <style>{`
+        .color-tile-${index} { 
+          background-color: ${el.colour}; 
+          --hex-transition: ''; 
+          animation: disappear ${(this.menuLink.length - index) / 10}s ease; 
+          visibility: hidden;
+        } 
+        :host([opened]) 
+        .color-tile-${index} {
+          --hex-transition: all .2s ease; 
+          transition: var(--hex-transition); 
+          animation: appearing ${index / 10}s ease; 
+          visibility: visible;
+        } 
+        .color-tile-${index}::before {
+          border-bottom: var(--hex-border) solid ${el.colour};
+          bottom: 100%;
+          width: 0px;
+        } 
+        .color-tile-${index}::after {
+          border-top: var(--hex-border) solid ${el.colour};
+          top: 100%;
+          width: 0px;
+        } 
+        .color-tile-${index}:hover svg {
+          fill: ${el.colour};
+        } 
+        .color-tile-${index}:hover line {
+          fill: ${el.colour};
+        }
+        .color-tile-${index}:hover circle {
+          fill: ${el.colour};
+        }
+        .color-tile-${index}:hover path {
+          fill: ${el.colour};
+        }`}</style>,
       <a
         class={!this.opened ? 'isDisabled' : ''}
         href={el.url}
