@@ -66,7 +66,7 @@ export class HexMenu {
           border-top: var(--hex-border) solid ${el.colour};
           top: 100%;
           width: 0px;
-        } 
+        }
         .color-tile-${index}:hover svg {
           fill: ${el.colour};
         } 
@@ -82,6 +82,7 @@ export class HexMenu {
       <a
         class={!this.opened ? 'isDisabled' : ''}
         href={el.url}
+        aria-label={el.title}
         onClick={this.onSelectTile.bind(this, el.url)}
         target={el.newTab ? '_blank' : ''}
         rel="noopener noreferrer"
@@ -99,6 +100,8 @@ export class HexMenu {
         <div
           class="hexagon hexagons color-menu"
           onClick={this.onCloseDrawer.bind(this)}
+          aria-label="Menu"
+          title="Menu"
         >
           <div class="hamburger" id="hamburger-6">
             <span class="line"></span>

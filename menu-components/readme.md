@@ -2,10 +2,11 @@
 
 # Notes about this specific project
 
-# Usage example, e.g. the hex-menu
+# Usage example, e.g. the hex-menu...
 
 Add this somewhere in your html...
-<ws-hex-menu></ws-hex-menu>
+
+# <ws-hex-menu></ws-hex-menu>
 
 Add any of these to your root element in your CSS file to customise...
 --hex-width: 5.625rem;

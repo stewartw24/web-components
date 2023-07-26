@@ -148,6 +148,7 @@
   position: relative;
   transition: var(--hex-transition);
   width: var(--hex-width, 5.625rem);
+  will-change: transform;
 }
 
 .hexagon::after,
