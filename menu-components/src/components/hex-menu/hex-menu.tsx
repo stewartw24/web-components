@@ -100,7 +100,7 @@ export class HexMenu {
         <div
           class="hexagon hexagons color-menu"
           onClick={this.onCloseDrawer.bind(this)}
-          aria-label="Menu"
+          role="button"
           title="Menu"
         >
           <div class="hamburger" id="hamburger-6">
